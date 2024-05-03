@@ -1,5 +1,3 @@
-![](https://i.imgur.com/xG74tOh.png)
-
 # API RESTful Banco Digital
 
 Seu papel é construir uma RESTful API que permita:
@@ -14,15 +12,24 @@ Seu papel é construir uma RESTful API que permita:
 -   Consultar saldo da conta bancária
 -   Emitir extrato bancário
 
-## Persistências dos dados
+#### Persistências dos dados
 
 Os dados serão persistidos em memória, no objeto existente dentro do arquivo `bancodedados.js`.
 
+Como Executar?
+
+### Para executar o projeto, siga os passos abaixo:
+
+   1. No terminal, navegue até a pasta raiz do projeto.
+   2. Execute o comando npm install para instalar as dependências do projeto.
+   3. Para iniciar o servidor, utilize o comando npm run dev.
+
+
 ## Endpoints
 
-### Listar contas bancárias
+### Listar contas bancárias `GET` `/contas?senha_banco=Cubos123Bank`
 
-#### `GET` `/contas?senha_banco=Cubos123Bank`
+![](https://i.imgur.com/xG74tOh.png)
 
 Esse endpoint deverá listar todas as contas bancárias existentes.
 
