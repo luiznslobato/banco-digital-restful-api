@@ -1,17 +1,15 @@
 # API RESTful Banco Digital
 O projeto trata-se de uma API RESTFul que simula um banco digital, com as seguintes funcionalidades:
 
--   Criar conta bancária
--   Listar contas bancárias
--   Atualizar os dados do usuário da conta bancária
--   Excluir uma conta bancária
--   Depósitar em uma conta bancária
--   Sacar de uma conta bancária
--   Transferir valores entre contas bancárias
--   Consultar saldo da conta bancária
--   Emitir extrato bancário
-
-**Persistências dos dados:**
+-   Criar conta bancária;
+-   Listar contas bancárias;
+-   Atualizar os dados do usuário da conta bancária;
+-   Excluir uma conta bancária;
+-   Depósitar em uma conta bancária;
+-   Sacar de uma conta bancária;
+-   Transferir valores entre contas bancárias;
+-   Consultar saldo da conta bancária;
+-   Emitir extrato bancário.
 
 Os dados serão persistidos em memória, no objeto existente dentro do arquivo `bancodedados.js`.
 
