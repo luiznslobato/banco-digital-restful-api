@@ -1,6 +1,5 @@
 # API RESTful Banco Digital
-
-Seu papel é construir uma RESTful API que permita:
+O projeto trata-se de uma API RESTFul que simula um banco digital, com as seguintes funcionalidades:
 
 -   Criar conta bancária
 -   Listar contas bancárias
@@ -12,46 +11,41 @@ Seu papel é construir uma RESTful API que permita:
 -   Consultar saldo da conta bancária
 -   Emitir extrato bancário
 
-#### Persistências dos dados
+**Persistências dos dados:**
 
 Os dados serão persistidos em memória, no objeto existente dentro do arquivo `bancodedados.js`.
 
-Como Executar?
-
-### Para executar o projeto, siga os passos abaixo:
-
-   1. No terminal, navegue até a pasta raiz do projeto.
-   2. Execute o comando npm install para instalar as dependências do projeto.
-   3. Para iniciar o servidor, utilize o comando npm run dev.
+## Executando o projeto:
+   1. Faça o fork do repositório;
+   2. Clone o repositório para o seu computador;
+   3. Abra o repositório com o VS code;
+   4. Execute o comando `npm install` no VS code para instalar as dependências do projeto;
+   5. Execute o comando `npm run dev` no VS code para iniciar o servidor;
+   6. Abra o Insomnia e crie uma nova coleção;
+   7. Importe o arquivo `insomnia_api_restful_banco_digital.json` dentro da coleção                                                           
+      para testar todas as funcionalidades do projeto, já definidas e salvas nesse arquivo.
 
 
 ## Endpoints
 
-### Listar contas bancárias `GET` `/contas?senha_banco=Cubos123Bank`
+### Listar contas bancárias 
+`GET` `/contas?senha_banco=Cubos123Bank`
 
-![](https://i.imgur.com/xG74tOh.png)
+![](https://i.imgur.com/HJVVwud.png)
 
-Esse endpoint deverá listar todas as contas bancárias existentes.
+-   Esse endpoint lista todas as contas bancárias existentes:
 
--   Você deverá, **OBRIGATORIAMENTE**:
+    -   Verificar se a senha do banco foi informada (passado como query params na url);
+    -   Validar se a senha do banco está correta;
+    -   Retorna uma listagem das contas existentes.
 
-    -   Verificar se a senha do banco foi informada (passado como query params na url)
-    -   Validar se a senha do banco está correta
-
--   **Requisição** - query params (respeitando este nome)
-
-    -   senha_banco
-
--   **Resposta**
-    -   listagem de todas as contas bancárias existentes
 
 ### Criar conta bancária
+`POST` `/contas`
 
-#### `POST` `/contas`
+![](https://i.imgur.com/Of5l1Yg.png)
 
-Esse endpoint deverá criar uma conta bancária, onde será gerado um número único para identificação da conta (número da conta).
-
--   Você deverá, **OBRIGATORIAMENTE**:
+-   Esse endpoint cria uma conta bancária:
 
     -   Criar uma nova conta cujo número é único
     -   CPF deve ser um campo único.
@@ -59,27 +53,12 @@ Esse endpoint deverá criar uma conta bancária, onde será gerado um número ú
     -   Verificar se todos os campos foram informados (todos são obrigatórios)
     -   Definir o saldo inicial da conta como 0
 
--   **Requisição** - O corpo (body) deverá possuir um objeto com as seguintes propriedades (respeitando estes nomes):
-
-    -   nome
-    -   cpf
-    -   data_nascimento
-    -   telefone
-    -   email
-    -   senha
-
--   **Resposta**
-
-    Em caso de **sucesso**, não deveremos enviar conteúdo no corpo (body) da resposta.  
-    Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
-
 ### Atualizar usuário da conta bancária
+`PUT` `/contas/:numeroConta/usuario`
 
-#### `PUT` `/contas/:numeroConta/usuario`
+![](https://i.imgur.com/hyTMY1I.png)
 
-Esse endpoint deverá atualizar apenas os dados do usuário de uma conta bancária.
-
--   Você deverá, **OBRIGATORIAMENTE**:
+-   Esse endpoint atualiza apenas os dados do usuário de uma conta bancária:
 
     -   Verificar se foi passado todos os campos no body da requisição
     -   Verificar se o numero da conta passado como parametro na URL é válida
@@ -87,23 +66,10 @@ Esse endpoint deverá atualizar apenas os dados do usuário de uma conta bancár
     -   Se o E-mail for informado, verificar se já existe outro registro com o mesmo E-mail
     -   Atualizar os dados do usuário de uma conta bancária
 
--   **Requisição** - O corpo (body) deverá possuir um objeto com todas as seguintes propriedades (respeitando estes nomes):
-
-    -   nome
-    -   cpf
-    -   data_nascimento
-    -   telefone
-    -   email
-    -   senha
-
--   **Resposta**
-
-    Em caso de **sucesso**, não deveremos enviar conteúdo no corpo (body) da resposta.  
-    Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
-
 ### Excluir Conta
+`DELETE` `/contas/:numeroConta`
 
-#### `DELETE` `/contas/:numeroConta`
+![](https://i.imgur.com/1vjJKEc.png)
 
 Esse endpoint deve excluir uma conta bancária existente.
 
@@ -123,8 +89,9 @@ Esse endpoint deve excluir uma conta bancária existente.
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 ### Depositar
+`POST` `/transacoes/depositar`
 
-#### `POST` `/transacoes/depositar`
+![](https://i.imgur.com/dNlHN01.png)
 
 Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e registrar essa transação.
 
@@ -146,8 +113,9 @@ Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 ### Sacar
+`POST` `/transacoes/sacar`
 
-#### `POST` `/transacoes/sacar`
+![](https://i.imgur.com/gUOHcRj.png)
 
 Esse endpoint deverá realizar o saque de um valor em uma determinada conta bancária e registrar essa transação.
 
@@ -171,8 +139,9 @@ Esse endpoint deverá realizar o saque de um valor em uma determinada conta banc
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 ### Tranferir
+`POST` `/transacoes/transferir`
 
-#### `POST` `/transacoes/transferir`
+![](https://i.imgur.com/yC7cfWr.png)
 
 Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma conta bancária para outra e registrar essa transação.
 
@@ -199,8 +168,9 @@ Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma co
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 ### Saldo
+`GET` `/contas/saldo?numero_conta=123&senha=123`
 
-#### `GET` `/contas/saldo?numero_conta=123&senha=123`
+![]()https://i.imgur.com/F5JvyQR.png)
 
 Esse endpoint deverá retornar o saldo de uma conta bancária.
 
@@ -221,8 +191,9 @@ Esse endpoint deverá retornar o saldo de uma conta bancária.
     -   Saldo da conta
     -   
 ### Extrato
+`GET` `/contas/extrato?numero_conta=123&senha=123`
 
-#### `GET` `/contas/extrato?numero_conta=123&senha=123`
+![](https://i.imgur.com/GXey0GJ.png)
 
 Esse endpoint deverá listar as transações realizadas de uma conta específica.
 
