@@ -11,19 +11,26 @@ O projeto trata-se de uma API RESTFul que simula um banco digital, com as seguin
 -   Consultar saldo da conta bancária;
 -   Emitir extrato bancário.
 
-Os dados serão persistidos em memória, no objeto existente dentro do arquivo `bancodedados.js`.
+Os dados são persistidos em memória, no objeto existente dentro do arquivo `bancodedados.js`.
 
+<br>
 
 ## Executando o projeto:
-   1. Faça o fork do repositório;
-   2. Clone o repositório para o seu computador;
-   3. Abra o repositório com o VS code;
-   4. Execute o comando `npm install` no VS code para instalar as dependências do projeto;
-   5. Execute o comando `npm run dev` no VS code para iniciar o servidor;
-   6. Abra o Insomnia e crie uma nova coleção;
-   7. Importe o arquivo `insomnia_api_restful_banco_digital.json` dentro da coleção                                                           
-      para testar todas as funcionalidades do projeto, já definidas e salvas nesse arquivo.
 
+   1. Clone o repositório para o seu computador;
+   2. Abra o terminal na pasta raiz do repositório;
+   3. Execute o comando `npm install` no terminal para instalar as dependências do projeto;
+   4. Execute o comando `npm run dev` no terminal para iniciar o servidor;
+   5. Abra o Insomnia e crie uma nova coleção;
+   6. Importe o arquivo `insomnia_api_restful_banco_digital.json` dentro da coleção para                                                           
+      testar todas as funcionalidades do projeto já definidas e salvas nesse arquivo.
+      
+>  **Programas importantes:**
+>                                            
+>  **Node** versão igual ou superior á 20.11.0 - [Node Download](https://nodejs.org/pt-br/download/)                                                                                 
+>  **Insomnia** versão igual ou superior á 9.0.0 - [Insomnia Download](https://insomnia.rest/download)
+
+<br>
 
 ## Endpoints
 
@@ -36,8 +43,8 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
 
     -   A senha do banco deve ser informada (passada como query params na url);
     -   A senha do banco deve está correta.
-
-#
+    -   
+<br>
 
 ### Criar conta bancária
 `POST` `/contas`
@@ -52,7 +59,7 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   Define o saldo inicial da conta como 0;
     -   Cria uma nova conta cujo número é único.
 
-#
+<br>
 
 ### Atualizar usuário da conta bancária
 `PUT` `/contas/:numeroConta/usuario`
@@ -66,7 +73,7 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   O CPF informado não pode pertencer a outra conta bancaria;
     -   O E-mail informado não pode pertencer a outra conta bancaria.
 
-#
+<br>
 
 ### Excluir Conta
 `DELETE` `/contas/:numeroConta`
@@ -78,7 +85,7 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   O número da conta passado como parametro na URL deve ser válido;
     -   Permiti excluir uma conta bancária apenas se o saldo for 0.
 
-#
+<br>
 
 ### Depositar
 `POST` `/transacoes/depositar`
@@ -91,7 +98,7 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   A conta bancária informada deve existir;
     -   Depósitos com valores negativos ou zerados não são permitidos.
 
-#
+<br>
 
 ### Sacar
 `POST` `/transacoes/sacar`
@@ -105,7 +112,7 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   A senha informada deve ser válida para a conta informada;
     -   Deve haver saldo disponível para saque.
 
-#
+<br>
 
 ### Tranferir
 `POST` `/transacoes/transferir`
@@ -120,20 +127,20 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   A senha informada deve ser válida para a conta de origem informada;
     -   Deve haver saldo disponível na conta de origem para a transferência.
 
-#
+<br>
 
 ### Saldo
 `GET` `/contas/saldo?numero_conta=123&senha=123`
 
 ![](https://i.imgur.com/F5JvyQR.png)
 
--   **Retorna o saldo de uma conta bancária** a partir da seguintes validações:
+-   **Retorna o saldo de uma conta bancaria** a partir da seguintes validações:
 
     -   O número da conta e a senha devem serem informadas (passados como query params na url);
     -   A conta bancária informada deve existir;
     -   A senha informada deve ser válida.
 
-#
+<br>
 
 ### Extrato
 `GET` `/contas/extrato?numero_conta=123&senha=123`
@@ -148,4 +155,14 @@ Os dados serão persistidos em memória, no objeto existente dentro do arquivo `
     -   A conta bancária informada deve existir;
     -   A senha informada deve ser válida.
 
-###### tags: `back-end` `nodeJS` `API REST` `javascript`
+<br>
+
+## Autor
+
+ <img style="border-radius: 50%;" src="https://i.imgur.com/etKbfgP.jpg" width="100px;" alt=""/>
+Feito por **Luiz Nonato** 👋🏽 Entre em contato!
+
+<div>
+<a href="https://www.linkedin.com/in/luiz-nonato-silva-lobato-943203187" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   
+<a href = "mailto:contato.luiznonato@gmail.com"><img loading="lazy" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+</div>
