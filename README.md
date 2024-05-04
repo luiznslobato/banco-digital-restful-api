@@ -43,7 +43,7 @@ Os dados são persistidos em memória, no objeto existente dentro do arquivo `ba
 
     -   A senha do banco deve ser informada (passada como query params na url);
     -   A senha do banco deve está correta.
-    -   
+      
 <br>
 
 ### Criar conta bancária
@@ -160,6 +160,7 @@ Os dados são persistidos em memória, no objeto existente dentro do arquivo `ba
 ## Autor
 
  <img style="border-radius: 50%;" src="https://i.imgur.com/etKbfgP.jpg" width="100px;" alt=""/>
+ 
 Feito por **Luiz Nonato** 👋🏽 Entre em contato!
 
 <div>
