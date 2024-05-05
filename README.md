@@ -1,8 +1,8 @@
 # Banco Digital API
 O projeto trata-se de uma API RESTFul no protocolo HTTP que simula um banco digital, com as seguintes funcionalidades:
 
--   Criar conta bancária;
 -   Listar contas bancárias;
+-   Criar conta bancária;
 -   Atualizar os dados do usuário da conta bancária;
 -   Excluir uma conta bancária;
 -   Depósitar em uma conta bancária;
@@ -110,7 +110,7 @@ Os dados são persistidos em memória, no objeto existente dentro do arquivo `ba
 
 ### `POST` `/transacoes/transferir`
 
-  **Transfere um valor do saldo de uma conta de origem para o saldo de uma conta de destino e registrar essa transação** a partir das seguintes validações:
+  **Transfere um valor do saldo de uma conta para o saldo de outra conta e registrar essa transação** a partir das seguintes validações:
   > - O número da conta de origem, de destino, senha da conta de origem e valor da transferência devem serem informados no body;
   > - A conta bancária de origem informada deve existir;
   > - A conta bancária de destino informada deve existir;
@@ -157,8 +157,8 @@ Os dados são persistidos em memória, no objeto existente dentro do arquivo `ba
    
 ## Autor
 
- <img style="border-radius: 50%;" src="https://i.imgur.com/etKbfgP.jpg" width="100px;" alt=""/>
- 
+<img style="border-radius: 50%;" src="https://i.imgur.com/etKbfgP.jpg" width="100px;" alt=""/>
+
 Feito por **Luiz Nonato** 👋🏽 Entre em contato!
 
 <div>
