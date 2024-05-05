@@ -1,5 +1,5 @@
 # Banco Digital API
-O projeto trata-se de uma API RESTFul que simula um banco digital, com as seguintes funcionalidades:
+O projeto trata-se de uma API RESTFul no protocolo HTTP que simula um banco digital, com as seguintes funcionalidades:
 
 -   Criar conta bancária;
 -   Listar contas bancárias;
@@ -34,124 +34,127 @@ Os dados são persistidos em memória, no objeto existente dentro do arquivo `ba
 
 ## Rotas
 
-### Listar contas bancárias 
-`GET` `/contas?senha_banco=Cubos123Bank`
+### `GET` `/contas?senha_banco=Cubos123Bank`
 
-> **Lista todas as contas bancárias existentes** a partir da seguintes validações:
+**Lista todas as contas bancárias existentes** a partir das seguintes validações:
    > - A senha do banco deve ser informada (passada como query params na url);
    > - A senha do banco deve está correta.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/HJVVwud.png)
 
-
-      
 <br>
 
-### Criar conta bancária
-`POST` `/contas`
-
-> **Cria uma conta bancária** a partir da seguintes validações:                                                                                               
+### `POST` `/contas`
+ 
+  **Cria uma conta bancária** a partir das seguintes validações:                                                                                               
   > - CPF deve ser um campo único;                                                                                                                                         
   > - E-mail deve ser um campo único;                                                                                                                                 
   > - Todos os campos devem serem informados;                                                            
   > - Define o saldo inicial da conta como 0;                                                                                                                
   > - Cria uma nova conta cujo número é único.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/Of5l1Yg.png)
 
 <br>
 
-### Atualizar usuário da conta bancária
-`PUT` `/contas/:numeroConta/usuario`
+### `PUT` `/contas/:numeroConta/usuario`
 
-> **Atualiza apenas os dados do usuário de uma conta bancária** a partir da seguintes validações:                                                                          
+  **Atualiza apenas os dados do usuário de uma conta bancária** a partir das seguintes validações:                                                                          
   > - Todos os campos no body da requisição devem serem informados;
   > - O número da conta passado como parametro na URL deve ser válida;
   > - O CPF informado não pode pertencer a outra conta bancaria;
   > - O E-mail informado não pode pertencer a outra conta bancaria.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/hyTMY1I.png)
-
 
 <br>
 
-### Excluir Conta
 `DELETE` `/contas/:numeroConta`
 
-> **Exclui uma conta bancária existente** a partir da seguintes validações:
+  **Exclui uma conta bancária existente** a partir das seguintes validações:
   > - O número da conta passado como parametro na URL deve ser válido;
   > -  Permiti excluir uma conta bancária apenas se o saldo for 0.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/1vjJKEc.png)
 
 <br>
 
-### Depositar
 `POST` `/transacoes/depositar`
 
-> **Soma o valor do depósito ao saldo de uma conta válida e registrar essa transação** a partir da seguintes validações:
+  **Deposita um valor no saldo de uma conta e registrar essa transação** a partir das seguintes validações:
   > - O número da conta e o valor do depósito devem serem informados no body;
   > - A conta bancária informada deve existir;
   > - Depósitos com valores negativos ou zerados não são permitidos.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/dNlHN01.png)
-
 
 <br>
 
-### Sacar
-`POST` `/transacoes/sacar`
+### `POST` `/transacoes/sacar`
 
-> **Subtrai o valor de saque do saldo da conta bancária e registrar essa transação.** a partir da seguintes validações:
+ **Saca um valor do saldo de uma conta bancária e registrar essa transação.** a partir das seguintes validações:
  > - O núumero da conta, o valor do saque e a senha devem serem informados no body;
  > - A conta bancária informada deve existir;
  > - A senha informada deve ser válida para a conta informada;
  > - Deve haver saldo disponível para saque.
-      
+
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/gUOHcRj.png)
-
-
 
 <br>
 
-### Tranferir
-`POST` `/transacoes/transferir`
+### `POST` `/transacoes/transferir`
 
-> **Subtrai o valor de transferência do saldo de uma conta de origem e soma esse valor ao saldo de uma conta de destino e registrar essa transação**  a partir da seguintes validações:
+  **Transfere um valor do saldo de uma conta de origem para o saldo de uma conta de destino e registrar essa transação** a partir das seguintes validações:
   > - O número da conta de origem, de destino, senha da conta de origem e valor da transferência devem serem informados no body;
   > - A conta bancária de origem informada deve existir;
   > - A conta bancária de destino informada deve existir;
   > - A senha informada deve ser válida para a conta de origem informada;
-  > -  Deve haver saldo disponível na conta de origem para a transferência.>
+  > -  Deve haver saldo disponível na conta de origem para a transferência.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/yC7cfWr.png)
 
 <br>
 
-### Saldo
-`GET` `/contas/saldo?numero_conta=123&senha=123`
-
-> **Retorna o saldo de uma conta bancaria** a partir da seguintes validações:
+### `GET` `/contas/saldo?numero_conta=123&senha=123`
+  
+  **Retorna o saldo de uma conta bancaria** a partir das seguintes validações:
   > - O número da conta e a senha devem serem informadas (passados como query params na url);
   > - A conta bancária informada deve existir;
   > - A senha informada deve ser válida.
-      
+
+<sub>Screenshot da rota em execução no Insomnia<sub>      
 ![](https://i.imgur.com/F5JvyQR.png)
 
 <br>
 
-### Extrato
-`GET` `/contas/extrato?numero_conta=123&senha=123`
+### `GET` `/contas/extrato?numero_conta=123&senha=123`
 
-> **Lista as transações realizadas de uma conta** a partir da seguintes validações:
+ **Lista as transações realizadas de uma conta** a partir das seguintes validações:
  > - O número da conta e a senha devem serem informadas (passados como query params na url);
  > - A conta bancária informada deve existir;
  > - A senha informada deve ser válida.
 
+<sub>Screenshot da rota em execução no Insomnia<sub>
 ![](https://i.imgur.com/GXey0GJ.png)
 
 <br>
 
+## Tecnologias e ferramentas utilizadas:
+
+- Javascript;
+- Node.js;
+- VS Code;
+- Insomnia.
+
+<b>
+   
 ## Autor
 
  <img style="border-radius: 50%;" src="https://i.imgur.com/etKbfgP.jpg" width="100px;" alt=""/>
